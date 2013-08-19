@@ -7,6 +7,7 @@
 * 이범재
 * 방정현
 * 박창진
+* 윤연식
 
 ## 페이스북 그룹
 [devRulu](https://www.facebook.com/groups/289315441209766/)
