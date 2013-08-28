@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  avatar                 :string(255)
+#  posts_count            :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -26,4 +27,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  has_many :posts
 end
