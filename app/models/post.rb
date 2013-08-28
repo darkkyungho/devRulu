@@ -15,4 +15,5 @@ class Post < ActiveRecord::Base
   belongs_to :user, counter_cache: true
 
   mount_uploader :image, ImageUploader
+  acts_as_taggable
 end
