@@ -9,10 +9,12 @@
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
-
+<p>
+  <%= image_tag @post.image_url().to_s %>
+</p>
 <p>
   <strong>User:</strong>
-  <%= image_tag @post.user.avatar_url %>
+  <%= image_tag @post.user.avatar_url().to_s %>
   <%= @post.user.email %>
 </p>
 
