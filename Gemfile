@@ -36,6 +36,8 @@ gem 'simple_form', '~> 3.0.0.rc'
 
 gem 'rmagick'
 gem 'carrierwave'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development do
   gem 'sqlite3'

@@ -1,0 +1,25 @@
+<p>
+  <strong>User Info</strong>
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><%= image_tag @user.avatar_url %></td>
+    </tr>
+    <tr>
+      <td>id : <%= @user.id %></td>
+    </tr>
+    <tr>
+      <td>email : <%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>avatar url : <%= @user.avatar %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to 'All Users', users_path %>
+</p>
+
