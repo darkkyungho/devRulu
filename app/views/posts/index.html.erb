@@ -1,5 +1,7 @@
 <h1>Listing posts</h1>
 
+<%= will_paginate %>
+
 <table>
   <thead>
     <tr>
@@ -17,6 +19,8 @@
     <%= render @posts %>
   </tbody>
 </table>
+
+<%= will_paginate %>
 
 <br>
 
