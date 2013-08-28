@@ -8,10 +8,12 @@
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  image      :string(255)
 #
 
 class Post < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   mount_uploader :image, ImageUploader
+  acts_as_taggable
 end
