@@ -1,6 +1,12 @@
 # DevRulu (데브룰루) 프로젝트 Repo
 
 ## Change log
+
+### 2013.08.29 이의범
+* 댓글 추가
+ * polymorphic association을 사용
+ * 여러 포스트에 대한 댓글이므로 commentable 로 정의? 
+
 ### 2013.08.29 이준헌
 * post <-> user 간 관계에 User 모델에 counter_cache 추가
 * post에 댓글 달기 추가
