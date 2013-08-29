@@ -21,6 +21,10 @@
 <p>
   <strong>Tags:</strong>
   <%= tag_list @post.tag_list %>
+
+  <button class="likePost btn" data-post-id="<%= @post.id %>">
+    like <span>[<%= @post %>]</span>
+  </button>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
