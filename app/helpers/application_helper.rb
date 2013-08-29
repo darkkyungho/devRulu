@@ -7,3 +7,4 @@ module ApplicationHelper
     raw tags.map { |t| link_to t, root_path(tag: t), class: 'label' }.join(', ')
   end
 end
+

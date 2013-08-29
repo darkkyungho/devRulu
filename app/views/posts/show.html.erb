@@ -31,7 +31,11 @@
 
 <p>
   <strong>Comment:</strong>
-  i donot know
+
+  <%= render 'comments/form' %>
+  <ul>
+  <%= render @comments %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
