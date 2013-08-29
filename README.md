@@ -3,7 +3,7 @@
 ## Change log
 ### 2013.08.29 이준헌
 * post <-> user 간 관계에 User 모델에 counter_cache 추가
-* post에 댓글 달기 추가
+* post에 Tag 달기 추가
   * Gem : acts-as-taggable-on
   * ApplicationHelper 에 tag_list 렌더링 헬퍼 추가 (app/helper/application_helper.rb)
     * Helper는 controller 별로 로드됨. Application controller 는 최상위 base 이기 때문에 마찬가지로 application helper도 모든 뷰에서 사용 가능
