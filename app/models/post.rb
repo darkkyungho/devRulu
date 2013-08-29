@@ -13,6 +13,7 @@
 
 class Post < ActiveRecord::Base
   belongs_to :user, counter_cache: true
+  has_many :comments, as: :commentable
 
   mount_uploader :image, ImageUploader
   acts_as_taggable

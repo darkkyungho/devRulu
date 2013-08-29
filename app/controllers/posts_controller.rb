@@ -15,6 +15,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @commentable = @post
+
+    @comments = @commentable.comments
+    @comment = @comments.new if user_signed_in?
   end
 
   # GET /posts/new
