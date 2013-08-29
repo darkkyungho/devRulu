@@ -2,6 +2,14 @@
 
 ## Change log
 
+### 2013.08.29 윤연식
+* following 기능 추가
+  * 사용자 프로필 이미지 안나오는 버그 수정
+  * 이미지 크기별 옵션 추가(thumb, small, normal, large) 및 적용
+  * 사용자 화면에서 follow, following count 보기
+  * follow, unfollow기능추가
+  * follow list, following list보기 기능 추가
+
 ### 2013.08.29 이준헌
 * 태그 자동완성 기능 추가
   * vendor/asssets/stylesheets 밑에 jquery.tokeninput theme 추가
@@ -44,7 +52,12 @@
   이후 Imageupload에 small, medium, large 사이즈 버전을 추가할 예정
 
 ### 2013.08.28 윤연식
-연식님이 기능 추가한듯.. 간략 설명 달아주세요.
+* 유저정보 뷰 기능 추가
+  * 왼쪽 사이드 메뉴에 Post List, User List 링크 추가
+  * 가입한 유저들 목록 보여주는 화면 추가
+  * 유저들의 개인별 프로필화면 추가
+  * Post List, User List에 페이징 기능 추가
+    (Gem : will_paginate, bootstrap-will_paginate)
 
 ## 프로젝트 멤버
 * 임경호 (팀장)
