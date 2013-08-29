@@ -5,7 +5,7 @@
 <table>
   <tbody>
     <tr>
-      <td><%= image_tag @user.avatar_url %></td>
+      <td><%= image_tag @user.avatar_url(:normal) %></td>
     </tr>
     <tr>
       <td>id : <%= @user.id %></td>
@@ -15,6 +15,12 @@
     </tr>
     <tr>
       <td>avatar url : <%= @user.avatar %></td>
+    </tr>
+    <tr>
+      <td><%= render 'users/stats' %></td>
+    </tr>
+    <tr>
+      <td><%= render 'follow_form' if signed_in? %></td>
     </tr>
   </tbody>
 </table>

@@ -13,7 +13,7 @@
 <p>
   <strong>User:</strong>
   <%= image_tag @post.user.avatar_url %>
-  <%= @post.user.email %>
+  <%= link_to @post.user.email, @post.user %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
