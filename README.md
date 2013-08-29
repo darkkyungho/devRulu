@@ -12,8 +12,20 @@
 
 향후 javascript로 tag를 입력하고 autocomplete을 사용하여 tag를 입력하도록 할 예정
 
-### 2013.08.28
-범재님, 연식님이 기능 추가한듯.. 간략 설명 달아주세요.
+### 2013.08.28 이범재
+* Post에 이미지업로드 기능 추가
+  * Gem : CarrierWave , RMagick
+  * Image Uploader 생성 : Rails generate Uploader Image
+  * Post 모델에 Image 컬럼 추가 : Rails generate migration add_image_to_posts image:string
+  * Post 모델에 ImageUploader Mount
+  * Post Controller의 post_params Permit에 :image 추가
+  * Post View _form에 image필드 추가
+  * Post View index, show, _post 에 image 태그 추가 
+
+  이후 Imageupload에 small, medium, large 사이즈 버전을 추가할 예정
+
+### 2013.08.28 윤연식
+연식님이 기능 추가한듯.. 간략 설명 달아주세요.
 
 ## 프로젝트 멤버
 * 임경호 (팀장)
