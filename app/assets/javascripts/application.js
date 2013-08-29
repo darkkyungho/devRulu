@@ -13,5 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.tokeninput
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function () {
+    //좋아요 초기화
+    var initPostLike = function () {
+        var like = function (evt) {
+            var postID = $(this).data('post-id');
+            console.log(postID);
+        };
+        $('.likePost').on('click', {}, like);
+    }
+    initPostLike();
+});
