@@ -69,4 +69,15 @@ ActiveRecord::Schema.define(version: 20130829114801) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+
+  create_table "likes", force: true do |t|
+    t.integer "like_id"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.integer "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+  add_index "likes", ["like_id"], name: "index_likes_on_like_id"
+
 end

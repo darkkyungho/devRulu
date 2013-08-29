@@ -2,6 +2,19 @@
 
 ## Change log
 
+### 2013.08.29 이준헌
+* 태그 자동완성 기능 추가
+  * vendor/asssets/stylesheets 밑에 jquery.tokeninput theme 추가
+    * app/assets/stylesheets/application.css 에 css 추가
+    * app/assets/stylesheets/posts.css.scss 에 token input 관련 css override
+  * vendor/assets/javascripts 밑에 jquery.tokeninput 추가
+    * app/assets/javascripts/application.js 에 jquery tokeninput js 추가
+    * app/assets/javascripts/posts.js.coffee 에 token input 관련 코드 추가
+  * controller에 tags action 추가
+  * routes에 tags를 posts의 collection으로 추가 (posts/tags)
+  * posts/_form.html.erb 에 html data attributes에 현재 글의 tag 추가 (글 에디트용)
+  * posts 의 index action 에 tag param 이 있을경우 tag로 filtering하는 기능 추가
+
 ### 2013.08.29 이의범
 * 댓글 추가
  * polymorphic association을 사용
