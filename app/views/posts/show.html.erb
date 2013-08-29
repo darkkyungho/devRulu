@@ -11,8 +11,12 @@
 </p>
 
 <p>
+  <%= image_tag @post.image_url(:large) %>
+</p>
+
+<p>
   <strong>User:</strong>
-  <%= image_tag @post.user.avatar_url %>
+  <%= image_tag @post.user.avatar_url(:normal) %>
   <%= link_to @post.user.email, @post.user %>
 </p>
 

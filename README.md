@@ -1,5 +1,51 @@
 # DevRulu (데브룰루) 프로젝트 Repo
 
+## Change log
+
+### 2013.08.29 윤연식
+* following 기능 추가
+  * 사용자 프로필 이미지 안나오는 버그 수정
+  * 이미지 크기별 옵션 추가(thumb, small, normal, large) 및 적용
+  * 사용자 화면에서 follow, following count 보기
+  * follow, unfollow기능추가
+  * follow list, following list보기 기능 추가
+
+### 2013.08.29 이의범
+* 댓글 추가
+ * polymorphic association을 사용
+ * 여러 포스트에 대한 댓글이므로 commentable 로 정의? 
+
+### 2013.08.29 이준헌
+* post <-> user 간 관계에 User 모델에 counter_cache 추가
+* post에 Tag 달기 추가
+  * Gem : acts-as-taggable-on
+  * ApplicationHelper 에 tag_list 렌더링 헬퍼 추가 (app/helper/application_helper.rb)
+    * Helper는 controller 별로 로드됨. Application controller 는 최상위 base 이기 때문에 마찬가지로 application helper도 모든 뷰에서 사용 가능
+  * controller에 tag_list strong_param permit
+* initializer에 bootstrap style로 file input을 렌더링 할 수 있도록 config/initializer/simple_form_bootstrap_file_input.rb를 추가
+
+향후 javascript로 tag를 입력하고 autocomplete을 사용하여 tag를 입력하도록 할 예정
+
+### 2013.08.28 이범재
+* Post에 이미지업로드 기능 추가
+  * Gem : CarrierWave , RMagick
+  * Image Uploader 생성 : Rails generate Uploader Image
+  * Post 모델에 Image 컬럼 추가 : Rails generate migration add_image_to_posts image:string
+  * Post 모델에 ImageUploader Mount
+  * Post Controller의 post_params Permit에 :image 추가
+  * Post View _form에 image필드 추가
+  * Post View index, show, _post 에 image 태그 추가 
+
+  이후 Imageupload에 small, medium, large 사이즈 버전을 추가할 예정
+
+### 2013.08.28 윤연식
+* 유저정보 뷰 기능 추가
+  * 왼쪽 사이드 메뉴에 Post List, User List 링크 추가
+  * 가입한 유저들 목록 보여주는 화면 추가
+  * 유저들의 개인별 프로필화면 추가
+  * Post List, User List에 페이징 기능 추가
+    (Gem : will_paginate, bootstrap-will_paginate)
+
 ## 프로젝트 멤버
 * 임경호 (팀장)
 * 이의범

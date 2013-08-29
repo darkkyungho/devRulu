@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  avatar                 :string(255)
+#  posts_count            :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -45,4 +46,6 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy!
   end
+
+  has_many :posts
 end
