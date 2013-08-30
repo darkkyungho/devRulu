@@ -56,6 +56,10 @@ gem 'friendly_id', '~> 5.0.0.rc1'
 gem 'stringex'
 # gem 'babosa'
 
+
+# Feed
+gem 'public_activity', '~> 1.4.0'
+
 group :development do
   gem 'sqlite3'
   gem 'better_errors'

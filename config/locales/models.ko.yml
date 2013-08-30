@@ -1,0 +1,11 @@
+ko:
+  models: &models
+    post: '글'
+
+  activemodel:
+    models:
+      <<: *models
+
+  activerecord:
+    models:
+      <<: *models

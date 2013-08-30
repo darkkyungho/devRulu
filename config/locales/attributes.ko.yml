@@ -1,0 +1,16 @@
+ko:
+  attributes: &attributes
+    email: '이메일'
+    nickname: '닉네임'
+    avatar: '프로필 이미지'
+    password: '비밀번호'
+    password_confirmation: '비밀번호 확인'
+    current_password: '현재 비밀번호'
+
+  activemodel:
+    attributes:
+      <<: *attributes
+
+  activerecord:
+    attributes:
+      <<: *attributes
