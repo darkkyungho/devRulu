@@ -25,4 +25,10 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   acts_as_taggable
+
+  validates :content, presence: true,
+                      length: { within: 2..1000 }
+
+  validates :title, presence: true,
+                    length: { within: 2..128 }
 end

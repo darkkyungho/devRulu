@@ -1,6 +1,7 @@
 ko:
   models: &models
     post: '글'
+    comment: '댓글'
 
   activemodel:
     models:

@@ -30,6 +30,7 @@ class CommentsController < ApplicationController
   def create
    #@comment = Comment.new(comment_params)
    @comment = @commentable.comments.new(comment_params)
+   @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
@@ -67,7 +68,6 @@ class CommentsController < ApplicationController
   end
 
 
-
   private
   def set_commentable
     resource, id = request.path.split('/')[1, 2]
@@ -77,18 +77,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :user_id)
   end
-
-
-
-
-#  private
-    # Use callbacks to share common setup or constraints between actions.
-#    def set_comment
-#      @comment = Comment.find(params[:id])
-#    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-#    def comment_params
-#      params.require(:comment).permit(:content, :commentable_id, :commentable_type)
-#    end
 end
