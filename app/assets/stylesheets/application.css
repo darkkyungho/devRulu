@@ -12,6 +12,7 @@
  *= require bootstrap_and_overrides
  *= require token-input
  *= require token-input-facebook
+ *= require nprogress/nprogress
  *= require_tree .
  */
 
