@@ -14,7 +14,21 @@
  *= require token-input-facebook
  *= require_tree .
  */
+
 .likePost {
     cursor: pointer;
     font-weight: bold;
+}
+
+
+footer {
+  overflow: hidden;
+}
+
+footer p {
+  float: left;
+}
+
+footer .github {
+  float: right;
 }

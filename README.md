@@ -3,6 +3,9 @@
 ## Change log
 
 ### 2013.08.30 이준헌
+* footer에 github 버튼 추가
+
+### 2013.08.30 이준헌
 * Post 모델에 comments 에 대한 counter_cache field 추가
   * polymorphic association의 경우 counter_cache field에 대해 해달 모델에서 readonly로 설정을 해줘야함
     * 일반적인 경우 자동으로 readonly
