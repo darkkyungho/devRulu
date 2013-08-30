@@ -3,9 +3,9 @@ class AddPostsCountToUsers < ActiveRecord::Migration
     add_column :users, :posts_count, :integer, default: 0, index: true
 
     # Update existing users' posts count
-    User.find_each do |user|
-      user.update_attribute(:posts_count, user.posts.length)
-      user.save
+    User.reset_column_information
+    User.find_each do |u|
+      User.reset_counters u.id, :posts
     end
   end
 end

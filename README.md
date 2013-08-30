@@ -13,6 +13,9 @@
   * 실제 사용시 @post.comments.count 대신 @post.comment.size 를 사용
     * count 메소드는 실제 count query가 발생
     * size의 경우 counter_cache가 있을 시 counter_cache를 사용, 없을시 count query
+    
+* counter_cache의 migration의 경우 기존 필드 업데이트에 주의해야함
+  * 반드시 migration 코드를 참고해주세요.
 
 ### 2013.08.29 윤연식
 * following 기능 추가
