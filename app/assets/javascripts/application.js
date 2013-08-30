@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.tokeninput
+//= require nprogress/nprogress
 //= require turbolinks
 //= require_tree .
 
@@ -25,11 +26,20 @@ function initPage() {
             console.log(postID);
         };
         $('.likePost').on('click', {}, like);
-    }
+    };
+
     initPostLike();
 }
 
 
 $(document).ready(function () {
     initPage();
+});
+
+$(document).on('page:fetch', function () {
+  NProgress.start(); 
+}).on('page:change', function () {
+  NProgress.done();
+}).on('page:restore', function () {
+  NProgress.remove();
 });

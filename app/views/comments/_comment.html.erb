@@ -1,3 +1,8 @@
 <% unless comment.new_record? %>
-  <li><%= comment.content %></li>
+  <li>
+    <% if comment.user %>
+      <%= user.nickname %>
+    <% end %>
+    <%= comment.content %>
+  </li>
 <% end %>

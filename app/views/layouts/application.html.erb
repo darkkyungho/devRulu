@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -37,63 +37,58 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
+    <div id="wrap">
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <%= link_to 'DevRulu', root_path, class: 'brand' %>
-          <nav class="container-fluid nav-collapse" id="gnb">
-            <ul class="nav">
-              <% if user_signed_in? %>
-                <li><%= link_to "Profile", @user %>
-                <li><%= link_to 'Edit User', edit_user_registration_path %>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, confirm: 'Are you sure?' %>
-              <% else %>
-                <li><%= link_to 'Sign in', new_user_session_path %>
-                <li><%= link_to 'Sign up', new_user_registration_path %>
-              <% end %>
-            </ul>
-          </nav><!--/.nav-collapse -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <%= link_to root_path, class: 'brand' do %>
+              <i class="icon-keyboard"></i>
+              DevRulu
+            <% end %>
+            <div class="container-fluid nav-collapse">
+              <%= render_navigation expand_all: true, renderer: :bootstrap %>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3">
+            <nav class="well sidebar-nav" id="lnb">
+              <ul class="nav nav-list">
+                <li class="nav-header">Sidebar</li>
+                <li><%= link_to "Listing posts", "/posts"  %></li>
+                <li><%= link_to "All Users", "/users"  %></li>
+              </ul>
+            </nav><!--/.well -->
+          </div><!--/span-->
+          <section class="span9" id="contents">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </section>
+        </div><!--/row-->
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <nav class="well sidebar-nav" id="lnb">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Listing posts", "/posts"  %></li>
-              <li><%= link_to "All Users", "/users"  %></li>
-            </ul>
-          </nav><!--/.well -->
-        </div><!--/span-->
-        <section class="span9" id="contents">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </section>
-      </div><!--/row-->
+    <footer id="footer">
+      <h1>&copy; DevRulu</h1>
 
-      <footer id="footer">
-        <h1>&copy; DevRulu</h1>
-
-        <div class="github">
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=fork&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=watch&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=follow&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="192" height="20"></iframe>
-        </div>
-      </footer>
-
-    </div> <!-- /container -->
+      <div class="github">
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=fork&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=follow&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="192" height="20"></iframe>
+      </div>
+    </footer>
 
   </body>
 </html>

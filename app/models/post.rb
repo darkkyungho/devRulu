@@ -10,9 +10,18 @@
 #  updated_at     :datetime
 #  image          :string(255)
 #  comments_count :integer          default(0)
+#  slug           :string(255)
 #
 
 class Post < ActiveRecord::Base
+  # Slug
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders, :history]
+
+  # Activity feed
+  include PublicActivity::Model
+  tracked
+
   belongs_to :user, counter_cache: true
   has_many :comments, as: :commentable
 
@@ -22,4 +31,10 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   acts_as_taggable
+
+  validates :content, presence: true,
+                      length: { within: 2..1000 }
+
+  validates :title, presence: true,
+                    length: { within: 2..128 }
 end

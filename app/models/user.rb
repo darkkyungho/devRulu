@@ -17,9 +17,14 @@
 #  updated_at             :datetime
 #  avatar                 :string(255)
 #  posts_count            :integer          default(0)
+#  nickname               :string(255)
+#  slug                   :string(255)
 #
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :nickname, use: [:slugged, :finders, :history]
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -35,6 +40,12 @@ class User < ActiveRecord::Base
                                     class_name: "Relationship",
                                     dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+
+  has_many :posts
+  has_many :comments
+
+  validates :nickname, presence: true,
+                       length: { within: 2..12 }
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
@@ -48,6 +59,11 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy!
   end
 
-  has_many :posts
-  has_many :comments
+  def should_generate_new_friendly_id?
+    slug.blank? || nickname_changed?
+  end
+
+  def normalize_friendly_id(input)
+    input.to_s.to_url
+  end
 end
