@@ -2,15 +2,19 @@
 
 <%= will_paginate %>
 
-<table>
+<table class ="table table-hover tbPost">
+  <colgroup>
+    <col>
+    <col width="150">
+    <col width="50">
+    <col width="120">
+  </colgroup>
   <thead>
     <tr>
-      <th>Content</th>
       <th>Title</th>
+      <!--<th>Content</th>-->
       <th>User</th>
       <th>Images</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -23,5 +27,6 @@
 <%= will_paginate %>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+<div class="btnArea">
+  <%= link_to 'New Post', new_post_path, :class => 'btn btn-primary' %>
+</div>

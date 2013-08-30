@@ -1,10 +1,11 @@
 <tr>
-  <td><%= post.content %></td>
-  <td><%= post.title %></td>
+  <td class="mainCol    "><%= link_to post.title, post %></td>
+  <!--<td><%= post.content %></td>-->
 
   <td><%= link_to post.user.email, post.user %></td>
   <td><%= image_tag post.image_url(:thumb).to_s %></td>
-  <td><%= link_to 'Show', post %></td>
-  <td><%= link_to 'Edit', edit_post_path(post) %></td>
-  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td>
+    <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-small btn-info' %>
+    <%= link_to 'Del', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-warning' %>
+  </td>
 </tr>
