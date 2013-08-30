@@ -18,8 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-
-$(document).ready(function () {
+function initPage() {
     //좋아요 초기화
     var initPostLike = function () {
         var like = function (evt) {
@@ -30,6 +29,11 @@ $(document).ready(function () {
     };
 
     initPostLike();
+}
+
+
+$(document).ready(function () {
+    initPage();
 });
 
 $(document).on('page:fetch', function () {

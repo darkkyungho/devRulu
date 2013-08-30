@@ -61,36 +61,32 @@
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span3">
-            <div class="well sidebar-nav">
+            <nav class="well sidebar-nav" id="lnb">
               <ul class="nav nav-list">
                 <li class="nav-header">Sidebar</li>
                 <li><%= link_to "Listing posts", "/posts"  %></li>
                 <li><%= link_to "All Users", "/users"  %></li>
               </ul>
-            </div><!--/.well -->
+            </nav><!--/.well -->
           </div><!--/span-->
-          <div class="span9">
+          <section class="span9" id="contents">
             <%= bootstrap_flash %>
             <%= yield %>
-          </div>
+          </section>
         </div><!--/row-->
-
-      </div> <!-- /container -->
-
+      </div>
     </div>
 
     <footer id="footer">
-      <div class="container">
-        <p>&copy; Company 2013</p>
+      <h1>&copy; DevRulu</h1>
 
-        <div class="github">
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=fork&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=watch&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=follow&count=true"
-                  allowtransparency="true" frameborder="0" scrolling="0" width="130" height="20"></iframe>
-        </div>
+      <div class="github">
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=fork&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=follow&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="192" height="20"></iframe>
       </div>
     </footer>
 
