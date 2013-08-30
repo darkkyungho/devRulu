@@ -47,10 +47,12 @@ class User < ActiveRecord::Base
   validates :nickname, presence: true,
                        length: { within: 2..12 }
   
+  # boolean 형식을 return할때는 ?를 명시한다.
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
   
+  # !로 선언하면 문제가 있을시 자동으로 에러처리를 해주므로 if조건을 따로 해주지 않아도 된다.
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id)
   end

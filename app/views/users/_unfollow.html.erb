@@ -1,4 +1,5 @@
-<%= form_for(current_user.relationships.find_by(followed_id: @user),
-             html: { method: :delete }) do |f| %>
+<%= # JavaScript를 핸들링하고자 하는 경우 remote: true를 설정한다. 
+  form_for(current_user.relationships.find_by(followed_id: @user),
+  html: { method: :delete }, remote: true) do |f| %>
   <%= f.submit "Unfollow", class: "btn btn-large" %>
 <% end %>
