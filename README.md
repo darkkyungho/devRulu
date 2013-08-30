@@ -2,6 +2,18 @@
 
 ## Change log
 
+### 2013.08.30 이준헌
+* Post 모델에 comments 에 대한 counter_cache field 추가
+  * polymorphic association의 경우 counter_cache field에 대해 해달 모델에서 readonly로 설정을 해줘야함
+    * 일반적인 경우 자동으로 readonly
+  * counter_cache 설정법
+    * Post 에 comments_count를 integer, default: 0로 추가 및 기존 레코드 업데이트 로직
+      * migration 파일을 참고바람
+    * comments의 belongs_to :commentable에 counter_cache: true를 추가
+  * 실제 사용시 @post.comments.count 대신 @post.comment.size 를 사용
+    * count 메소드는 실제 count query가 발생
+    * size의 경우 counter_cache가 있을 시 counter_cache를 사용, 없을시 count query
+
 ### 2013.08.29 윤연식
 * following 기능 추가
   * 사용자 프로필 이미지 안나오는 버그 수정
