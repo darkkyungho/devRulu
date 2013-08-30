@@ -3,6 +3,12 @@
 ## Change log
 
 ### 2013.08.30 이준헌
+* bower package mangager 설정 추가
+  * vendor/assets/bower_components 커스텀 폴더 추가
+  * config/environment.rb 에 asset_path 추가
+* nprogress 와 turbolink 연결 (페이지 전환시 상단에 로딩 인디케이터 효과)
+
+### 2013.08.30 이준헌
 * footer에 github 버튼 추가
 
 ### 2013.08.30 이준헌

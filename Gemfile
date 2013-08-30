@@ -40,12 +40,21 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'rmagick'
 gem 'carrierwave'
 
+# Navigation
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
+
 # Tagging
 gem 'acts-as-taggable-on'
 
 # Pagination
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+
+# Slug
+gem 'friendly_id', '~> 5.0.0.rc1'
+gem 'stringex'
+# gem 'babosa'
 
 group :development do
   gem 'sqlite3'

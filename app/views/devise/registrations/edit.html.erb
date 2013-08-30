@@ -5,6 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :nickname %>
     <%= f.input :avatar, as: :file %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

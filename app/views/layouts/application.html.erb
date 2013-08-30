@@ -48,16 +48,7 @@
           </a>
           <%= link_to 'DevRulu', root_path, class: 'brand' %>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <% if user_signed_in? %>
-                <li><%= link_to "Profile", @user %>
-                <li><%= link_to 'Edit User', edit_user_registration_path %>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, confirm: 'Are you sure?' %>
-              <% else %>
-                <li><%= link_to 'Sign in', new_user_session_path %>
-                <li><%= link_to 'Sign up', new_user_registration_path %>
-              <% end %>
-            </ul>
+            <%= render_navigation expand_all: true, renderer: :bootstrap %>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -76,6 +67,7 @@
         </div><!--/span-->
         <div class="span9">
           <%= bootstrap_flash %>
+          <%= render_navigation renderer: :breadcrumbs, join_with: " &gt; " %>
           <%= yield %>
         </div>
       </div><!--/row-->
