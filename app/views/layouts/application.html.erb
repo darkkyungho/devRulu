@@ -37,42 +37,50 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
+    <div id="wrap">
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <%= link_to 'DevRulu', root_path, class: 'brand' %>
-          <div class="container-fluid nav-collapse">
-            <%= render_navigation expand_all: true, renderer: :bootstrap %>
-          </div><!--/.nav-collapse -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <%= link_to root_path, class: 'brand' do %>
+              <i class="icon-keyboard"></i>
+              DevRulu
+            <% end %>
+            <div class="container-fluid nav-collapse">
+              <%= render_navigation expand_all: true, renderer: :bootstrap %>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
+
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Sidebar</li>
+                <li><%= link_to "Listing posts", "/posts"  %></li>
+                <li><%= link_to "All Users", "/users"  %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+          <div class="span9">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+
+      </div> <!-- /container -->
+
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Listing posts", "/posts"  %></li>
-              <li><%= link_to "All Users", "/users"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= render_navigation renderer: :breadcrumbs, join_with: " &gt; " %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
+    <footer id="footer">
+      <div class="container">
         <p>&copy; Company 2013</p>
 
         <div class="github">
@@ -83,9 +91,8 @@
           <iframe src="http://ghbtns.com/github-btn.html?user=dev-study&repo=devRulu&type=follow&count=true"
                   allowtransparency="true" frameborder="0" scrolling="0" width="130" height="20"></iframe>
         </div>
-      </footer>
-
-    </div> <!-- /container -->
+      </div>
+    </footer>
 
   </body>
 </html>

@@ -10,9 +10,15 @@
 #  updated_at     :datetime
 #  image          :string(255)
 #  comments_count :integer          default(0)
+#  slug           :string(255)
 #
 
 class Post < ActiveRecord::Base
+  # Slug
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders, :history]
+
+  # Activity feed
   include PublicActivity::Model
   tracked
 

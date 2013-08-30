@@ -1,18 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h2><%= @post.title %></h2>
+</div>
+
+<% if @post.image? %>
+  <figure>
+    <%= image_tag @post.image_url, class: 'img-polaroid' %>
+  </figure>
+<% end %>
+
+<div class="content">
+  <%= simple_format @post.content %>
+</div>
 
 <p>
-  <strong>Content:</strong>
-  <%= @post.content %>
+  <strong>Tags:</strong>
+  <%= tag_list @post.tag_list %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <%= image_tag @post.image_url(:large) %>
-</p>
+<hr />
 
 <p>
   <strong>User:</strong>
@@ -20,17 +25,11 @@
   <%= link_to @post.user.email, @post.user %>
 </p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= tag_list @post.tag_list %>
-
-  <button class="likePost btn" data-post-id="<%= @post.id %>">
-    like <span>[<%= @post %>]</span>
-  </button>
-</p>
-
-<p>
-  <strong>Comment: (<%= @comments.size %>)</strong>
+<section class="comments">
+  <h4>
+    Comments
+    <small>(<%= @comments.size %>)</small>
+  </h4>
 
   <% if user_signed_in? %>
     <%= render 'comments/form' %>
@@ -38,7 +37,7 @@
   <ul>
   <%= render @comments %>
   </ul>
-</p>
+</section>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %> |
