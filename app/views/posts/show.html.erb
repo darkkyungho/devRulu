@@ -25,6 +25,18 @@
   <%= link_to @post.user.email, @post.user %>
 </p>
 
+<p>
+  <strong>Likes:(<%= @post.likes.size %>)</strong>
+</p>
+
+<% if user_signed_in? %>
+  <% unless @post.liked_by?(current_user) %>
+    <%= link_to 'Like', [:like, @post], method: :create %>
+  <% else %>
+    <%= link_to 'Unlike', [:unlike, @post], method: :delete %>
+  <% end %>
+<% end %>
+
 <section class="comments">
   <h4>
     Comments

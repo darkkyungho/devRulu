@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_filter :authenticate_user!, except: [:index, :show, :tags]
 
   # GET /posts
@@ -80,6 +80,24 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @tags}
+    end
+  end
+
+  # POST /posts/1/like
+  def like
+    @post.like_by!(current_user) unless @post.liked_by?(current_user)
+
+    respond_to do |format|
+      format.html { redirect_to @post }
+    end
+  end
+
+  # DELETE /posts/1/unlike
+  def unlike
+    @post.unlike_by!(current_user) if @post.liked_by?(current_user)
+
+    respond_to do |format|
+      format.html { redirect_to @post }
     end
   end
 
