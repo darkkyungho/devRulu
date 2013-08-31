@@ -25,6 +25,9 @@ class Post < ActiveRecord::Base
   belongs_to :user, counter_cache: true
   has_many :comments, as: :commentable
 
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
+
   # Polymorphic association에 대한 counter_cache의 경우 
   # Post에서 접근시 readonly로 field를 보호해야함
   attr_readonly :comments_count
@@ -37,4 +40,16 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true,
                     length: { within: 2..128 }
+
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
+
+  def like_by!(user)
+    likes.create!(user_id: user.id)
+  end
+
+  def unlike_by!(user)
+    likes.find_by(user_id: user.id).destroy!
+  end
 end

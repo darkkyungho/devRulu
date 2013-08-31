@@ -11,6 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "nprogress": "~0.1.2"
+    "nprogress": "~0.1.2",
+    "backbone": "~1.0.0"
   }
 }

@@ -44,6 +44,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+
   validates :nickname, presence: true,
                        length: { within: 2..12 }
   

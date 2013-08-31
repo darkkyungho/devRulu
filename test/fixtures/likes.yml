@@ -9,7 +9,12 @@
 #  updated_at :datetime
 #
 
-class Like < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :post
-end
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  post_id: 
+
+two:
+  user_id: 
+  post_id: 

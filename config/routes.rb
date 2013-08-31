@@ -8,6 +8,11 @@ DevStudyMission08::Application.routes.draw do
     collection do
       get 'tags'
     end
+
+    member do
+      post 'like'
+      delete 'unlike'
+    end
   end
 
   devise_for :users
